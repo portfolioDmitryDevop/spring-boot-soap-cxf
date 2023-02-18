@@ -1,0 +1,78 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.soap.example.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HelloWorldWSImplService" targetNamespace="http://service.soap.example.com/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.soap.example.com/" elementFormDefault="unqualified" targetNamespace="http://service.soap.example.com/" version="1.0">
+<xs:element name="createHello" type="tns:createHello"/>
+<xs:element name="createHelloResponse" type="tns:createHelloResponse"/>
+<xs:element name="createMessage" type="tns:createMessage"/>
+<xs:element name="createMessageResponse" type="tns:createMessageResponse"/>
+<xs:complexType name="createMessage">
+<xs:sequence>
+<xs:element minOccurs="0" name="createMessageRequest" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createMessageResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createHello">
+<xs:sequence>
+<xs:element minOccurs="0" name="createMessageRequest" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createHelloResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="createMessage">
+<wsdl:part element="tns:createMessage" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="createHello">
+<wsdl:part element="tns:createHello" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="createHelloResponse">
+<wsdl:part element="tns:createHelloResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="createMessageResponse">
+<wsdl:part element="tns:createMessageResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="HelloWorldWS">
+<wsdl:operation name="createMessage">
+<wsdl:input message="tns:createMessage" name="createMessage"> </wsdl:input>
+<wsdl:output message="tns:createMessageResponse" name="createMessageResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createHello">
+<wsdl:input message="tns:createHello" name="createHello"> </wsdl:input>
+<wsdl:output message="tns:createHelloResponse" name="createHelloResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="HelloWorldWSImplServiceSoapBinding" type="tns:HelloWorldWS">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="createMessage">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="createMessage">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createMessageResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="createHello">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="createHello">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createHelloResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="HelloWorldWSImplService">
+<wsdl:port binding="tns:HelloWorldWSImplServiceSoapBinding" name="HelloWorldWSImplPort">
+<soap:address location="http://localhost:8080/ws/helloWorldWS"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

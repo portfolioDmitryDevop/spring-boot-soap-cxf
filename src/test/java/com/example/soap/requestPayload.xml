@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.soap.example.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:createHello>
+         <!--Optional:-->
+         <createMessageRequest>dima</createMessageRequest>
+      </ser:createHello>
+   </soapenv:Body>
+</soapenv:Envelope>
